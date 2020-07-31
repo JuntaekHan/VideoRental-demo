@@ -11,8 +11,6 @@
 //import javax.swing.ScrollPaneConstants;
 //import javax.swing.SpinnerListModel;
 //
-//import video.rental.demo.Rating;
-//
 //import javax.swing.JSpinner;
 //import javax.swing.JSeparator;
 //import java.awt.event.ActionListener;
@@ -224,13 +222,13 @@
 //			priceCode = 3;
 //
 //		String ratingString = ratingSpinner.getValue().toString();
-//		Rating videoRating;
+//		int videoRating;
 //		if (ratingString.equals("Twelve"))
-//			videoRating = Rating.TWELVE;
+//			videoRating = 1;
 //		else if (ratingString.equals("Fifteen"))
-//			videoRating = Rating.FIFTEEN;
+//			videoRating = 2;
 //		else // Eighteen
-//			videoRating = Rating.EIGHTEEN;
+//			videoRating = 3;
 //		
 //		// ...
 //	}
