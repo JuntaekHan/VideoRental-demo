@@ -18,7 +18,7 @@ public class Customer {
 	private LocalDate dateOfBirth;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Rental> rentals = new ArrayList<Rental>();
+	private List<Rental> rentals = new ArrayList<>();
 
 	public Customer() {	// for hibernate
 	}
@@ -53,16 +53,13 @@ public class Customer {
 		String result = "Customer Report for " + getName() + "\n";
 
 		List<Rental> rentals = getRentals();
-
 		double totalCharge = 0;
 		int totalPoint = 0;
 
 		for (Rental each : rentals) {
 			double eachCharge = 0;
 			int eachPoint = 0;
-			int daysRented = 0;
-
-			daysRented = each.getDaysRented();
+			int daysRented = each.getDaysRented();
 
 			switch (each.getVideo().getPriceCode()) {
 			case Video.REGULAR:
@@ -87,21 +84,21 @@ public class Customer {
 			if (daysRented > each.getDaysRentedLimit())
 				eachPoint -= Math.min(eachPoint, each.getVideo().getLateReturnPointPenalty());
 
-			result += "\t" + each.getVideo().getTitle() + "\tDays rented: " + daysRented + "\tCharge: " + eachCharge
+			result += "\tTitle: " + each.getVideo().getTitle() + "\tDays rented: " + daysRented + "\tCharge: " + eachCharge
 					+ "\tPoint: " + eachPoint + "\n";
 
 			totalCharge += eachCharge;
 			totalPoint += eachPoint;
 		}
 		
-		result += "Total charge: " + totalCharge + "\tTotal Point:" + totalPoint + "\n";
+		result += "Total charge: " + totalCharge + "\tTotal Point: " + totalPoint + "\n";
 
 		if (totalPoint >= 10) {
-			System.out.println("Congrat! You earned one free coupon");
+			System.out.println("Congratulations! You earned two free coupons");
+		} else if (totalPoint >= 5) {
+			System.out.println("Congratulations! You earned one free coupon");
 		}
-		if (totalPoint >= 30) {
-			System.out.println("Congrat! You earned two free coupon");
-		}
+
 		return result;
 	}
 
