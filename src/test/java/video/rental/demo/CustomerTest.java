@@ -13,20 +13,20 @@ class CustomerTest {
 
     static final LocalDate UNUSED_DATE = null;
 
-    static final Customer CYSTOMER = new Customer(0, "James", UNUSED_DATE);
-    static final Video VIDEO_1 = new Video("V1", Video.CD, Video.REGULAR, Rating.FIFTEEN, UNUSED_DATE);
-    static final Video VIDEO_2 = new Video("V2", Video.DVD, Video.CHILDREN, Rating.TWELVE, UNUSED_DATE);
-    static final Video VIDEO_3 = new Video("V3", Video.VHS, Video.NEW_RELEASE, Rating.EIGHTEEN, UNUSED_DATE);
+    final Customer CUSTOMER = new Customer(0, "James", UNUSED_DATE);
+    final Video VIDEO_1 = new Video("V1", Video.CD, Video.REGULAR, Rating.FIFTEEN, UNUSED_DATE);
+    final Video VIDEO_2 = new Video("V2", Video.DVD, Video.CHILDREN, Rating.TWELVE, UNUSED_DATE);
+    final Video VIDEO_3 = new Video("V3", Video.VHS, Video.NEW_RELEASE, Rating.EIGHTEEN, UNUSED_DATE);
 
     @Test
     void setRentals_emptyList_clears_rentals() {
         // Given
 
         // When
-        CYSTOMER.setRentals(new ArrayList<>());
+        CUSTOMER.setRentals(new ArrayList<>());
 
         // Then
-        assertEquals(0, CYSTOMER.getRentals().size());
+        assertEquals(0, CUSTOMER.getRentals().size());
     }
 
     @Test
@@ -36,10 +36,10 @@ class CustomerTest {
         Rental RENTAL_2 = new Rental(VIDEO_2);
 
         // When
-        CYSTOMER.setRentals(List.of(RENTAL_1, RENTAL_2));
+        CUSTOMER.setRentals(List.of(RENTAL_1, RENTAL_2));
 
         // Then
-        assertEquals(2, CYSTOMER.getRentals().size());
+        assertEquals(2, CUSTOMER.getRentals().size());
     }
 
     @Test
@@ -49,10 +49,10 @@ class CustomerTest {
     	Rental rental = new Rental(VIDEO_1);
     	rental.setReturnDate(rental.getRentDate().plusHours(24 + 23));
        
-        CYSTOMER.setRentals(List.of(rental));
+        CUSTOMER.setRentals(List.of(rental));
 
         // When
-        String report = CYSTOMER.getReport();
+        String report = CUSTOMER.getReport();
 
         // Then
         assertEquals("Customer Report for James\n\tTitle: V1\tDays rented: 2"
@@ -65,10 +65,10 @@ class CustomerTest {
         // Given
     	Rental rental = new Rental(VIDEO_1);
     	rental.setReturnDate(rental.getRentDate().plusHours(24*3 + 23));
-        CYSTOMER.setRentals(List.of(rental));
+        CUSTOMER.setRentals(List.of(rental));
 
         // When
-        String report = CYSTOMER.getReport();
+        String report = CUSTOMER.getReport();
 
         // Then
         assertEquals("Customer Report for James\n\tTitle: V1"
@@ -82,10 +82,10 @@ class CustomerTest {
         // Given
     	Rental rental = new Rental(VIDEO_3);
     	rental.setReturnDate(rental.getRentDate().plusHours(24+ 23));
-        CYSTOMER.setRentals(List.of(rental));
+        CUSTOMER.setRentals(List.of(rental));
 
         // When
-        String report = CYSTOMER.getReport();
+        String report = CUSTOMER.getReport();
 
         // Then
         assertEquals("Customer Report for James\n\tTitle: V3\tDays rented: 2"
@@ -98,10 +98,10 @@ class CustomerTest {
         // Given
     	Rental rental = new Rental(VIDEO_2);
     	rental.setReturnDate(rental.getRentDate().plusHours(24 * 4+ 23));
-        CYSTOMER.setRentals(List.of(rental));
+        CUSTOMER.setRentals(List.of(rental));
 
         // When
-        String report = CYSTOMER.getReport();
+        String report = CUSTOMER.getReport();
 
         // Then
         assertEquals("Customer Report for James\n\tTitle: V2\tDays rented: 5"

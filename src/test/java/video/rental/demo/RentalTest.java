@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 class RentalTest {
 	static final LocalDate UNUSED_DATE = null;
-	static final Video ANY_VIDEO = new Video("ANY_TITLE", Video.VHS, Video.NEW_RELEASE, Rating.EIGHTEEN, UNUSED_DATE);
+	final Video ANY_VIDEO = new Video("ANY_TITLE", Video.VHS, Video.NEW_RELEASE, Rating.EIGHTEEN, UNUSED_DATE);
 
 	@Test
 	@DisplayName("rental status should be `rented` when created")

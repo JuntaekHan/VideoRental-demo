@@ -24,8 +24,13 @@
     - Video.DVD = 3
     
    
-* Future Changes
+* Immediate Changes
     - UI may be changed to Graphic UI and/or Web-based UI.
-    - Customer report generation in HTML format may be added.
     - The `PriceCode` of each video may be changed during the video's lifetime.
 
+
+* Future Changes
+    - Customer report generation in other formats such as HTML may be added.
+    - New `VideoType` maybe introduced. (`MediaType` seems to be a better naming than `VideoType`.)
+    - Each video title may have multiple copies of different media types.
+    - ...

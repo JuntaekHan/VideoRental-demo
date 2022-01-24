@@ -25,19 +25,18 @@ public class CmdUI {
 		boolean quit = false;
 		while (!quit) {
             try {
-			int command = getCommand();
-			switch (command) {
-				case 0: quit = true; 			break;
-				case 1: listCustomers(); 		break;
-				case 2: listVideos(); 			break;
-				case 3: register("customer"); 	break;
-				case 4: register("video"); 		break;
-				case 5: rentVideo(); 			break;
-				case 6: returnVideo(); 			break;
-				case 7: getCustomerReport(); 	break;
-				case 8: clearRentals(); 		break;
-				default: 						break;
-			}
+			    switch (getCommand()) {
+				    case 0: quit = true; 			break;
+				    case 1: listCustomers(); 		break;
+				    case 2: listVideos(); 			break;
+				    case 3: register("customer"); 	break;
+				    case 4: register("video"); 		break;
+				    case 5: rentVideo(); 			break;
+				    case 6: returnVideo(); 			break;
+				    case 7: getCustomerReport(); 	break;
+				    case 8: clearRentals(); 		break;
+				    default: 						break;
+			    }
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
