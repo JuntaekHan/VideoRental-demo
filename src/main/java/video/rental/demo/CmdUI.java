@@ -17,33 +17,33 @@ public class CmdUI {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    //@formatter:off
-	public void start() {
+    public void start() {
         scanner.useDelimiter("\\r\\n|\\n");
-		generateSamples();
+        generateSamples();
 
-		boolean quit = false;
-		while (!quit) {
+        boolean quit = false;
+        while (!quit) {
+            //@formatter:off
             try {
-			    switch (getCommand()) {
-				    case 0: quit = true; 			break;
-				    case 1: listCustomers(); 		break;
-				    case 2: listVideos(); 			break;
-				    case 3: register("customer"); 	break;
-				    case 4: register("video"); 		break;
-				    case 5: rentVideo(); 			break;
-				    case 6: returnVideo(); 			break;
-				    case 7: getCustomerReport(); 	break;
-				    case 8: clearRentals(); 		break;
-				    default: 						break;
-			    }
+                switch (getCommand()) {
+                    case 0: quit = true;            break;
+                    case 1: listCustomers();        break;
+                    case 2: listVideos();           break;
+                    case 3: register("customer");   break;
+                    case 4: register("video");      break;
+                    case 5: rentVideo();            break;
+                    case 6: returnVideo();          break;
+                    case 7: getCustomerReport();    break;
+                    case 8: clearRentals();         break;
+                    default:                        break;
+                }
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
-		}
-		System.out.println("Bye");
-	}
-	//@formatter:on
+            //@formatter:on
+        }
+        System.out.println("Bye");
+    }
 
     public void clearRentals() {
         System.out.println("Enter customer code: ");
