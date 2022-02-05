@@ -1,5 +1,6 @@
 package video.rental.demo;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
