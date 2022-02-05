@@ -93,7 +93,7 @@ class CustomerTest {
     }
 
     @Test
-    @DisplayName("DVD, CHILDREN, daysRented(5) > 2, do exceed limit(2)\"")
+    @DisplayName("DVD, CHILDREN, daysRented(5) > 2, do exceed limit(2)")
     void getReport_test4() {
         // Given
     	Rental rental = new Rental(VIDEO_2);
