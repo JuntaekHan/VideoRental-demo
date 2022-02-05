@@ -50,6 +50,12 @@
 			<version>5.8.2</version>
 			<scope>test</scope>
 		</dependency>
+    <dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-suite-engine</artifactId>
+			<version>1.8.2</version>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
 		<dependency>

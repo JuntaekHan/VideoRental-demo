@@ -43,6 +43,15 @@ public class Video {
         this.rented = false;
     }
 
+    public Video(Video another) {
+        this.title = another.title;
+        this.videoRating = another.videoRating;
+        this.priceCode = another.priceCode;
+        this.videoType = another.videoType;
+        this.registeredDate = another.registeredDate;
+        this.rented = another.rented;
+    }
+
     public int getLateReturnPointPenalty() {
         //@formatter:off
         int penalty = 0;

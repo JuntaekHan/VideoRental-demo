@@ -32,6 +32,13 @@ public class Rental {
         this.rentDate = LocalDateTime.now();
     }
 
+    public Rental(Rental another) {
+        this.id = another.id;
+        this.status = another.status;
+        this.rentDate = another.rentDate;
+        this.returnDate = another.returnDate;
+    }
+
     public Video getVideo() {
         return video;
     }
@@ -74,9 +81,9 @@ public class Rental {
         //@formatter:off
 		int limit = 0;
 		switch (video.getVideoType()) {
-		case Video.VHS: limit = 5;	break;
-		case Video.CD:  limit = 3;	break;
-		case Video.DVD: limit = 2;	break;
+            case Video.VHS: limit = 5;	break;
+            case Video.CD:  limit = 3;	break;
+            case Video.DVD: limit = 2;	break;
 		}
 		//@formatter:on
         return limit;

@@ -29,6 +29,13 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public Customer(Customer another) {
+		this.code = another.code;
+		this.name = another.name;
+		this.dateOfBirth = another.dateOfBirth;
+		this.rentals = new ArrayList<>(another.rentals);
+	}
+
 	public int getCode() {
 		return code;
 	}

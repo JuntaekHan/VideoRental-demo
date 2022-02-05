@@ -164,13 +164,17 @@ public class CmdUI {
 
             System.out.println("Enter customer code: ");
             int code = scanner.nextInt();
+            // dirty hack for the moment
+            if (findAllCustomers().stream().mapToInt(Customer::getCode).anyMatch(c -> c == code)) {
+                throw new IllegalArgumentException("Customer code " + code + " already exists");
+            }
 
             System.out.println("Enter customer birthday (YYYY-MM-DD): ");
             String dateOfBirth = scanner.next();
 
-            // dirty hack for the moment
-            if (findAllCustomers().stream().mapToInt(Customer::getCode).anyMatch(c -> c == code)) {
-                throw new IllegalArgumentException("Customer code " + code + " already exists");
+            try {
+                new SimpleDateFormat("yyyy-MM-dd").parse(dateOfBirth);
+            } catch (Exception ignored) {
             }
 
             saveCustomer(new Customer(code, name, LocalDate.parse(dateOfBirth)));
