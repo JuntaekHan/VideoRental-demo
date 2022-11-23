@@ -1,4 +1,4 @@
-package video.rental.demo;
+package video.rental.demo.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,6 +29,7 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	// copy ctor
 	public Customer(Customer another) {
 		this.code = another.code;
 		this.name = another.name;

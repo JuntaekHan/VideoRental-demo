@@ -1,4 +1,4 @@
-package video.rental.demo;
+package video.rental.demo.domain;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

@@ -9,6 +9,11 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import video.rental.demo.domain.Customer;
+import video.rental.demo.domain.Rating;
+import video.rental.demo.domain.Rental;
+import video.rental.demo.domain.Video;
+
 class CustomerTest {
 
     static final LocalDate UNUSED_DATE = null;

@@ -9,6 +9,10 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
+import video.rental.demo.domain.Customer;
+import video.rental.demo.domain.Rating;
+import video.rental.demo.domain.Video;
+
 class VideoTest {
 
     static final LocalDate UNUSED_DATE = null;
