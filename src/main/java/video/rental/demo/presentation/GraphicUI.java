@@ -1,4 +1,4 @@
-package video.rental.demo;
+package video.rental.demo.presentation;
 
 // import java.awt.EventQueue;
 

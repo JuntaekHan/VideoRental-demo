@@ -1,0 +1,217 @@
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of customers
+ID: 0, Name: James, Rentals: 2
+	Title: V1, Price Code: 1, Return Status: 0
+	Title: V2, Price Code: 2, Return Status: 0
+ID: 1, Name: Brown, Rentals: 0
+ID: 2, Name: Shawn, Rentals: 0
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of videos
+Video type: 2, Price code: 1, Rating: FIFTEEN, Title: V1
+Video type: 3, Price code: 2, Rating: TWELVE, Title: V2
+Video type: 1, Price code: 2, Rating: EIGHTEEN, Title: V3
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer name: 
+Enter customer code: 
+Enter customer birthday (YYYY-MM-DD): 
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of customers
+ID: 0, Name: James, Rentals: 2
+	Title: V1, Price Code: 1, Return Status: 0
+	Title: V2, Price Code: 2, Return Status: 0
+ID: 1, Name: Brown, Rentals: 0
+ID: 2, Name: Shawn, Rentals: 0
+ID: 3, Name: Peter, Rentals: 0
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter video title to register: 
+Enter video type( 1 for VHD, 2 for CD, 3 for DVD ):
+Enter price code( 1 for Regular, 2 for New Release 3 for Children ):
+Enter video rating( 1 for 12, 2 for 15, 3 for 18 ):
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of videos
+Video type: 2, Price code: 1, Rating: FIFTEEN, Title: V1
+Video type: 3, Price code: 2, Rating: TWELVE, Title: V2
+Video type: 1, Price code: 2, Rating: EIGHTEEN, Title: V3
+Video type: 1, Price code: 2, Rating: EIGHTEEN, Title: V4
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer code: 
+Enter video title to rent: 
+Customer Shawn cannot rent this video because he/she is under age.
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of customers
+ID: 0, Name: James, Rentals: 2
+	Title: V1, Price Code: 1, Return Status: 0
+	Title: V2, Price Code: 2, Return Status: 0
+ID: 1, Name: Brown, Rentals: 0
+ID: 2, Name: Shawn, Rentals: 0
+ID: 3, Name: Peter, Rentals: 0
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer code: 
+Enter video title to return: 
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer code: 
+Customer Report for James
+	Title: V1	Days rented: 1	Charge: 2.0	Point: 1
+	Title: V2	Days rented: 1	Charge: 3.0	Point: 2
+Total charge: 5.0	Total Point: 3
+
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer code: 
+Enter video title to return: 
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Enter customer code: 
+Id: 0, Name: James, Rentals: 2
+	Title: V1, Price Code: 1	Title: V2, Price Code: 2
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+List of customers
+ID: 0, Name: James, Rentals: 0
+ID: 1, Name: Brown, Rentals: 0
+ID: 2, Name: Shawn, Rentals: 0
+ID: 3, Name: Peter, Rentals: 0
+End of list
+
+Select a command !
+	 0. Quit
+	 1. List customers
+	 2. List videos
+	 3. Register customer
+	 4. Register video
+	 5. Rent video
+	 6. Return video
+	 7. Show customer report
+	 8. Show customer and clear rentals
+Bye

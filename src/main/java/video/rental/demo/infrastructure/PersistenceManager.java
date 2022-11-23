@@ -1,4 +1,4 @@
-package video.rental.demo;
+package video.rental.demo.infrastructure;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

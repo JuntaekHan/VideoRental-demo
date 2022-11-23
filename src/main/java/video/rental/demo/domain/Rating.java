@@ -1,4 +1,4 @@
-package video.rental.demo;
+package video.rental.demo.domain;
 
 public enum Rating {
 	TWELVE, FIFTEEN, EIGHTEEN
