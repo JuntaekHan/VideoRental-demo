@@ -70,22 +70,16 @@ public class Customer {
 		for (Rental each : rentals) {
 			double eachCharge = each.getCharge();
 			int eachPoint = each.getPoint();
-
-			result += "\tTitle: " + each.getVideo().getTitle() + "\tDays rented: " + each.getDaysRented() + "\tCharge: " + eachCharge
-					+ "\tPoint: " + eachPoint + "\n";
-
+			result += each.getReport();
 			totalCharge += eachCharge;
 			totalPoint += eachPoint;
 		}
-		
 		result += "Total charge: " + totalCharge + "\tTotal Point: " + totalPoint + "\n";
-
 		if (totalPoint >= 10) {
 			System.out.println("Congratulations! You earned two free coupons");
 		} else if (totalPoint >= 5) {
 			System.out.println("Congratulations! You earned one free coupon");
 		}
-
 		return result;
 	}
 
