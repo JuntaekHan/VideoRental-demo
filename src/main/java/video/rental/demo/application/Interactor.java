@@ -74,26 +74,28 @@ public class Interactor {
 		return builder.toString();
 	}
 
-	public void listCustomers() {
+	public String listCustomers() {
+		StringBuilder builder = new StringBuilder();
 		for (Customer customer : getRepository().findAllCustomers()) {
-	        System.out.println("ID: " + customer.getCode() + ", "
+			builder.append("ID: " + customer.getCode() + ", "
 	                + "Name: " + customer.getName() + ", "
-	                + "Rentals: " + customer.getRentals().size());
+	                + "Rentals: " + customer.getRentals().size()+"\n");
 	        for (Rental rental : customer.getRentals()) {
-	            System.out.println("\tTitle: " + rental.getVideo().getTitle() + ", "
+	            builder.append("\tTitle: " + rental.getVideo().getTitle() + ", "
 	                    + "Price Code: " + rental.getVideo().getPriceCode() + ", "
-	                    + "Return Status: " + rental.getStatus());
+	                    + "Return Status: " + rental.getStatus()+"\n");
 	        }
 	    }
+		return builder.toString();
 	}
 
-	public void getCustomerReport(int code) {
+	public String getCustomerReport(int code) {
 		Customer foundCustomer = getRepository().findCustomerById(code);
 	    if (foundCustomer == null) {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    System.out.println(foundCustomer.getReport());
+	    return foundCustomer.getReport() + "\n";
 	}
 
 	public void rentVideo(int code, String videoTitle) {
