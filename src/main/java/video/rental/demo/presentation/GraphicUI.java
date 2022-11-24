@@ -57,6 +57,14 @@ public class GraphicUI extends JFrame {
             }
         });
     }
+    
+    final String CNAME = "Name";
+    final String CBIRTHDAY = "Birthday";
+    final String CUSERCODE = "UserCode";
+    final String CTITLE = "Title";
+    final String CPRICE = "Price";
+    final String CRATING = "Rating";
+    final String CTYPE = "Type";
 
     /**
      * Initialize the contents of the
@@ -74,29 +82,29 @@ public class GraphicUI extends JFrame {
         makeButton("Register User", (e) -> registerUser(), 18, 54, 117, 29);
 
         makeLabel("User Code:", 147, 59, 70, 16);
-        makeTextField("UserCode", 217, 54, 50, 26);
+        makeTextField(CUSERCODE, 217, 54, 50, 26);
 
         makeLabel("Name:", 280, 59, 61, 16);
-        makeTextField("Name", 324, 54, 120, 26);
+        makeTextField(CNAME, 324, 54, 120, 26);
 
         makeLabel("Birthday:", 462, 59, 60, 16);
-        makeTextField("Birthday", 520, 54, 96, 26);
+        makeTextField(CBIRTHDAY, 520, 54, 96, 26);
 
         makeSeparator(18, 86, 583, 1);
 
         makeButton("Register Video", (e) -> registerVideo(), 18, 95, 117, 29);
 
         makeLabel("Title:", 147, 100, 61, 16);
-        makeTextField("Title", 182, 95, 100, 26);
+        makeTextField(CTITLE, 182, 95, 100, 26);
 
         makeLabel("Price Code:", 294, 100, 75, 16);
-        makeSpinner("Price", 362, 95, 75, 26, new String[] { "Regular", "New", "Children" });
+        makeSpinner(CPRICE, 362, 95, 75, 26, new String[] { "Regular", "New", "Children" });
 
         makeLabel("Type:", 445, 100, 61, 16);
-        makeSpinner("Type", 480, 95, 55, 26, new String[] { "VHS", "CD", "DVD" });
+        makeSpinner(CTYPE, 480, 95, 55, 26, new String[] { "VHS", "CD", "DVD" });
 
         makeLabel("Rating:", 544, 100, 61, 16);
-        makeSpinner("Rating", 590, 95, 70, 26, new String[] { "Twelve", "Fifteen", "Eighteen" });
+        makeSpinner(CRATING, 590, 95, 70, 26, new String[] { "Twelve", "Fifteen", "Eighteen" });
 
         makeSeparator(18, 136, 583, 16);
 
@@ -142,12 +150,12 @@ public class GraphicUI extends JFrame {
     }
 
     private void clearRentals() {
-        int customerCode = Integer.parseInt(textBox.get("UserCode").getText().toString());
+        int customerCode = Integer.parseInt(textBox.get(CUSERCODE).getText().toString());
         textArea.append(interactor.clearRentals(customerCode));
     }
 
     private void getCustomerReport() {
-        int code = Integer.parseInt(textBox.get("UserCode").getText().toString());
+        int code = Integer.parseInt(textBox.get(CUSERCODE).getText().toString());
         textArea.append(interactor.getCustomerReport(code));
     }
 
@@ -164,30 +172,30 @@ public class GraphicUI extends JFrame {
     }
 
     private void returnVideo() {
-        int customerCode = Integer.parseInt(textBox.get("UserCode").getText().toString());
-        String videoTitle = textBox.get("Title").getText().toString();
+        int customerCode = Integer.parseInt(textBox.get(CUSERCODE).getText().toString());
+        String videoTitle = textBox.get(CTITLE).getText().toString();
 
         interactor.returnVideo(customerCode, videoTitle);
     }
 
     private void rentVideo() {
-        int customerCode = Integer.parseInt(textBox.get("UserCode").getText().toString());
-        String videoTitle = textBox.get("Title").getText().toString();
+        int customerCode = Integer.parseInt(textBox.get(CUSERCODE).getText().toString());
+        String videoTitle = textBox.get(CTITLE).getText().toString();
 
         interactor.rentVideo(customerCode, videoTitle);
     }
 
     private void registerUser() {
-        int code = Integer.parseInt(textBox.get("UserCode").getText().toString());
-        String name = textBox.get("Name").getText().toString();
-        String birthday = textBox.get("Birthday").getText().toString();
+        int code = Integer.parseInt(textBox.get(CUSERCODE).getText().toString());
+        String name = textBox.get(CNAME).getText().toString();
+        String birthday = textBox.get(CBIRTHDAY).getText().toString();
 
         interactor.registerCustomer(name, code, birthday);
     }
 
     private void registerVideo() {
-        String title = textBox.get("Title").getText().toString();
-        String videoTypeString = spinnerBox.get("Type").getValue().toString();
+        String title = textBox.get(CTITLE).getText().toString();
+        String videoTypeString = spinnerBox.get(CTYPE).getValue().toString();
         int videoType;
         if (videoTypeString.equals("Regular"))
             videoType = 1;
@@ -196,7 +204,7 @@ public class GraphicUI extends JFrame {
         else // Children
             videoType = 3;
 
-        String priceCodeString = spinnerBox.get("Price").getValue().toString();
+        String priceCodeString = spinnerBox.get(CPRICE).getValue().toString();
         int priceCode;
         if (priceCodeString.equals("VHS"))
             priceCode = 1;
@@ -205,7 +213,7 @@ public class GraphicUI extends JFrame {
         else // DVD
             priceCode = 3;
 
-        String ratingString = spinnerBox.get("Rating").getValue().toString();
+        String ratingString = spinnerBox.get(CRATING).getValue().toString();
         int videoRating;
         if (ratingString.equals("Twelve"))
             videoRating = 1;
@@ -236,3 +244,4 @@ public class GraphicUI extends JFrame {
         getContentPane().add(separator);
     }
 }
+
