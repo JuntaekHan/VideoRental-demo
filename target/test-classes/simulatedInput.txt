@@ -1,0 +1,21 @@
+private String simulatedInput = "1\n" // List customer
+			+ "2\n"	// List video
+			+ "3\n"	// Register customer
+			+ "Peter\n" + "3\n" + "1980-07-11\n" 
+			+ "1\n"	// List customer
+			+ "4\n" // Register video
+			+ "V4\n" + "1\n" + "2\n" + "3\n"
+			+ "2\n" // List video 
+			+ "5\n" // Rent video
+			+ "2\n" + "V3\n"
+			+ "1\n"	// List customer
+			+ "6\n" // Return video
+			+ "0\n" + "V1\n"
+			+ "7\n" // Show customer report
+			+ "0\n"
+			+ "6\n" // Return video
+			+ "0\n" + "V2\n"
+			+ "8\n" // Show customer and clear rentals
+			+ "0\n"
+			+ "1\n" // List customers
+			+ "0\n"; // Bye
