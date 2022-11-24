@@ -94,4 +94,36 @@ public class Rental {
         int days = (int) (ChronoUnit.HOURS.between(getRentDate(), end) / 24);
         return days == 0 ? 1 : days + 1;
     }
+
+	double getCharge() {
+		int daysRented = getDaysRented();
+		double eachCharge = 0;
+		switch (getVideo().getPriceCode()) {
+		case Video.REGULAR:
+			eachCharge += 2;
+			if (daysRented > 2)
+				eachCharge += (daysRented - 2) * 1.5;
+			break;
+		case Video.NEW_RELEASE:
+			eachCharge = daysRented * 3;
+			break;
+		case Video.CHILDREN:
+			eachCharge += 1.5;
+			if (daysRented > 3)
+				eachCharge += (daysRented - 3) * 1.5;
+			break;
+		}
+		return eachCharge;
+	}
+
+	int getPoint() {
+		int eachPoint = 0;
+		eachPoint++;
+		if ((getVideo().getPriceCode() == Video.NEW_RELEASE))
+			eachPoint++;
+	
+		if (getDaysRented() > getDaysRentedLimit())
+			eachPoint -= Math.min(eachPoint, getVideo().getLateReturnPointPenalty());
+		return eachPoint;
+	}
 }
