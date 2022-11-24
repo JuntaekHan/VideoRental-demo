@@ -7,6 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
+import video.rental.demo.application.Interactor;
+import video.rental.demo.domain.Repository;
+import video.rental.demo.infrastructure.RepositoryMemImpl;
+import video.rental.demo.presentation.GraphicUI;
+import video.rental.demo.util.SampleGenerator;
+
 public class VideoRentalSystemTest {
 
 	private GoldenMaster goldenMaster = new GoldenMaster();

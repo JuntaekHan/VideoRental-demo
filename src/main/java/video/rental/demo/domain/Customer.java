@@ -55,7 +55,11 @@ public class Customer {
 
 	public void setRentals(List<Rental> rentals) {
 		this.rentals = rentals;
-	}
+	}	
+
+	public void clearRentals() {
+		this.rentals = new ArrayList<Rental>();
+	}	
 
 	public String getReport() {
 		String result = "Customer Report for " + getName() + "\n";

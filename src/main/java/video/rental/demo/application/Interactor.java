@@ -15,7 +15,6 @@ public class Interactor {
 	private Repository repository;
 	
 	public Interactor(Repository repository) {
-		super();
 		this.repository = repository;
 	}
 
@@ -35,32 +34,30 @@ public class Interactor {
 	                + "Price Code: " + rental.getVideo().getPriceCode());
 	    }
 	
-	    foundCustomer.setRentals(new ArrayList<Rental>());
+	    // feature envy	    
+	    foundCustomer.clearRentals();	    
 	    getRepository().saveCustomer(foundCustomer);
 	    
 	    return builder.toString();
 	}
-
+	
 	public void returnVideo(int customerCode, String videoTitle) {
 		Customer foundCustomer = getRepository().findCustomerById(customerCode);
 	    if (foundCustomer == null) {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    List<Rental> customerRentals = foundCustomer.getRentals();
-	
-	    for (Rental rental : customerRentals) {
-	        if (rental.getVideo().getTitle().equals(videoTitle) && rental.getVideo().isRented()) {
-	            Video video = rental.returnVideo();
-	            video.setRented(false);
-	            getRepository().saveVideo(video);
-	            break;
-	        }
-	    }
+	    // Inappropriate Intimacy
+	    Video video = getRepository().findVideoByTitle(videoTitle);
+	    
+	    if (video != null && video.isRented()) {            
+            video.setRented(false);
+            getRepository().saveVideo(video);	    	
+	    }	    
 	
 	    getRepository().saveCustomer(foundCustomer);
 	}
-
+	
 	public String listVideos() {
 		StringBuilder builder = new StringBuilder();
 		
@@ -73,29 +70,37 @@ public class Interactor {
 		
 		return builder.toString();
 	}
-
-	public void listCustomers() {
+	
+	public String listCustomers() {
+		StringBuilder builder = new StringBuilder();
+		
 		for (Customer customer : getRepository().findAllCustomers()) {
-	        System.out.println("ID: " + customer.getCode() + ", "
+	        builder.append("ID: " + customer.getCode() + ", "
 	                + "Name: " + customer.getName() + ", "
-	                + "Rentals: " + customer.getRentals().size());
+	                + "Rentals: " + customer.getRentals().size() + "\n");
 	        for (Rental rental : customer.getRentals()) {
-	            System.out.println("\tTitle: " + rental.getVideo().getTitle() + ", "
+	            builder.append("\tTitle: " + rental.getVideo().getTitle() + ", "
 	                    + "Price Code: " + rental.getVideo().getPriceCode() + ", "
-	                    + "Return Status: " + rental.getStatus());
+	                    + "Return Status: " + rental.getStatus() + "\n");
 	        }
 	    }
+		
+		return builder.toString();
 	}
-
-	public void getCustomerReport(int code) {
+	
+	public String getCustomerReport(int code) {
+		StringBuilder builder = new StringBuilder();
+		
 		Customer foundCustomer = getRepository().findCustomerById(code);
 	    if (foundCustomer == null) {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    System.out.println(foundCustomer.getReport());
+	    builder.append(foundCustomer.getReport() + "\n");
+	    
+	    return builder.toString();
 	}
-
+	
 	public void rentVideo(int code, String videoTitle) {
 		Customer foundCustomer = getRepository().findCustomerById(code);
 	    if (foundCustomer == null)
@@ -114,17 +119,18 @@ public class Interactor {
 	        throw new IllegalStateException("Customer " + foundCustomer.getName()
 	                + " cannot rent this video because he/she is under age.");
 	    }
-	}
-
+	}	
+		
 	public void registerCustomer(String name, int code, String dateOfBirth) {
-		// dirty hack for the moment
-		if (getRepository().findAllCustomers().stream().mapToInt(Customer::getCode).anyMatch(c -> c == code)) {
-		    throw new IllegalArgumentException("Customer code " + code + " already exists");
-		}
+		// Inappropriate Intimacy 
+		Customer foundCustomer = getRepository().findCustomerById(code);
+	    if (foundCustomer != null)
+	    	throw new IllegalArgumentException("Customer code " + code + " already exists");
 	
 		try {
 		    new SimpleDateFormat("yyyy-MM-dd").parse(dateOfBirth);
-		} catch (Exception ignored) {
+		} catch (Exception ParseException) { // dead code
+			throw new IllegalArgumentException("Input Date format not supported");
 		}
 	
 		getRepository().saveCustomer(new Customer(code, name, LocalDate.parse(dateOfBirth)));
@@ -138,10 +144,10 @@ public class Interactor {
 		else if (videoRating == 3) rating = Rating.EIGHTEEN;
 		else throw new IllegalArgumentException("No such rating " + videoRating);
 	
-		// dirty hack for the moment
-		if (getRepository().findAllVideos().stream().map(Video::getTitle).anyMatch(t -> t.equals(title))) {
-		    throw new IllegalArgumentException("Video " + title + " already exists");
-		}
+		// Inappropriate Intimacy
+		Video video = getRepository().findVideoByTitle(title);
+		if (video != null)
+			throw new IllegalArgumentException("Video " + title + " already exists");
 	
 		getRepository().saveVideo(new Video(title, videoType, priceCode, rating, registeredDate));
 	}
@@ -149,5 +155,4 @@ public class Interactor {
 	private Repository getRepository() {
 		return repository;
 	}
-
 }

@@ -12,6 +12,7 @@ import video.rental.demo.application.Interactor;
 import video.rental.demo.domain.Repository;
 import video.rental.demo.infrastructure.RepositoryMemImpl;
 import video.rental.demo.presentation.CmdUI;
+import video.rental.demo.presentation.GraphicUI;
 import video.rental.demo.util.SampleGenerator;
 
 public class GoldenMaster {
@@ -61,17 +62,12 @@ public class GoldenMaster {
 		Repository repository = new RepositoryMemImpl();
 		new SampleGenerator(repository).generateSamples();
 		Interactor interactor = new Interactor(repository);
-		CmdUI cmdUI = new CmdUI(interactor);
 		
+		CmdUI cmdUI = new CmdUI(interactor);
 		cmdUI.start();
 		
 		return ostream.toString();
 	}
-	
-//	abc\n
-//	def\n
-//	ghi\n  
-//	abc\ndef\nghi
 	
 	public String getGoldenMaster() {
 		try {
