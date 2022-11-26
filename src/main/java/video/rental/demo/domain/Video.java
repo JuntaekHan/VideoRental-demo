@@ -54,7 +54,7 @@ public class Video {
 
     public int getLateReturnPointPenalty() {
         //@formatter:off
-        int penalty = 0;
+        int penalty = 0; 
         switch (videoType) {
             case VHS: penalty = 1;  break;
             case CD : penalty = 2;  break;
@@ -79,6 +79,10 @@ public class Video {
     public Rating getVideoRating() {
         return videoRating;
     }
+    
+    public String getInfo() {
+    	return ("\tTitle: " + title + ", " + "Price Code: " + priceCode);
+    }
 
     public boolean isRented() {
         return rented;
@@ -99,10 +103,7 @@ public class Video {
     public boolean rentFor(Customer customer) {
         if (!isUnderAge(customer)) {
             setRented(true);
-            Rental rental = new Rental(this);
-            List<Rental> customerRentals = customer.getRentals();
-            customerRentals.add(rental);
-            customer.setRentals(customerRentals);
+            customer.addRental(new Rental(this));
             return true;
         } else {
             return false;

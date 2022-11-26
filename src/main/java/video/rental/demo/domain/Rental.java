@@ -44,11 +44,16 @@ public class Rental {
     }
 
     public void setVideo(Video video) {
-        this.video = video;
+        this.video = video; 
     }
 
     public int getStatus() {
         return status;
+    }
+    
+    public String getInfo(boolean withStatus) {
+    	if(withStatus) return video.getInfo() + "Return Status: " + status;
+    	else return video.getInfo();
     }
 
     public Video returnVideo() {

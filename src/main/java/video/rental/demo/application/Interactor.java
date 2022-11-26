@@ -12,7 +12,7 @@ import video.rental.demo.domain.Repository;
 import video.rental.demo.domain.Video;
 
 public class Interactor {
-	private Repository repository;
+	private Repository repository; 
 	
 	public Interactor(Repository repository) {
 		super();
@@ -27,13 +27,7 @@ public class Interactor {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    builder.append("Id: " + foundCustomer.getCode() + ", "
-	            + "Name: " + foundCustomer.getName() + ", "
-	            + "Rentals: " + foundCustomer.getRentals().size() + "\n");
-	    for (Rental rental : foundCustomer.getRentals()) {
-	        builder.append("\tTitle: " + rental.getVideo().getTitle() + ", "
-	                + "Price Code: " + rental.getVideo().getPriceCode());
-	    }
+	    builder.append(foundCustomer.getInfo(false));
 	
 	    foundCustomer.setRentals(new ArrayList<Rental>());
 	    getRepository().saveCustomer(foundCustomer);
@@ -74,26 +68,21 @@ public class Interactor {
 		return builder.toString();
 	}
 
-	public void listCustomers() {
+	public String listCustomers() {
+		StringBuilder builder = new StringBuilder();
 		for (Customer customer : getRepository().findAllCustomers()) {
-	        System.out.println("ID: " + customer.getCode() + ", "
-	                + "Name: " + customer.getName() + ", "
-	                + "Rentals: " + customer.getRentals().size());
-	        for (Rental rental : customer.getRentals()) {
-	            System.out.println("\tTitle: " + rental.getVideo().getTitle() + ", "
-	                    + "Price Code: " + rental.getVideo().getPriceCode() + ", "
-	                    + "Return Status: " + rental.getStatus());
-	        }
+		    builder.append(customer.getInfo(true));
 	    }
+		return builder.toString();
 	}
 
-	public void getCustomerReport(int code) {
+	public String getCustomerReport(int code) {
 		Customer foundCustomer = getRepository().findCustomerById(code);
 	    if (foundCustomer == null) {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    System.out.println(foundCustomer.getReport());
+	    return foundCustomer.getReport();
 	}
 
 	public void rentVideo(int code, String videoTitle) {

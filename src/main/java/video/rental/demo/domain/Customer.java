@@ -44,6 +44,15 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
+	
+	public String getInfo(boolean withStatus) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ID: " + code + ", " + "Name: " + name + ", " + "Rentals: " + rentals.size());
+		for(Rental rental : rentals) {
+			builder.append(rental.getInfo(withStatus));
+		}
+		return builder.toString();
+	}
 
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
@@ -55,6 +64,10 @@ public class Customer {
 
 	public void setRentals(List<Rental> rentals) {
 		this.rentals = rentals;
+	}
+	
+	public void addRental(Rental rental) {
+		rentals.add(rental);
 	}
 
 	public String getReport() {
