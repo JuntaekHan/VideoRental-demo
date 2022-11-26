@@ -50,11 +50,6 @@ public class Rental {
     public int getStatus() {
         return status;
     }
-    
-    public String getInfo(boolean withStatus) {
-    	if(withStatus) return video.getInfo() + "Return Status: " + status;
-    	else return video.getInfo();
-    }
 
     public Video returnVideo() {
         if (status == 0) {
