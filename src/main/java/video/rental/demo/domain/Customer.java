@@ -57,19 +57,6 @@ public class Customer {
 		this.rentals = rentals;
 	}
 
-	public void addRental(Rental rental) {
-		rentals.add(rental);
-	}
-	
-	public String getInfo(boolean withStatus) {
-		StringBuilder builder = new StringBuilder();
-		builder.append("ID: " + code + ", " + "Name: " + name + ", " + "Rentals: " + rentals.size());
-        for (Rental rental : rentals) {
-        	builder.append(rental.getInfo(withStatus));
-        }
-        return builder.toString();
-	}
-	
 	public String getReport() {
 		String result = "Customer Report for " + getName() + "\n";
 

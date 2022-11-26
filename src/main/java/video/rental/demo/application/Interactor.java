@@ -27,7 +27,13 @@ public class Interactor {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    builder.append(foundCustomer.getInfo(false));
+	    builder.append("Id: " + foundCustomer.getCode() + ", "
+	            + "Name: " + foundCustomer.getName() + ", "
+	            + "Rentals: " + foundCustomer.getRentals().size() + "\n");
+	    for (Rental rental : foundCustomer.getRentals()) {
+	        builder.append("\tTitle: " + rental.getVideo().getTitle() + ", "
+	                + "Price Code: " + rental.getVideo().getPriceCode());
+	    }
 	
 	    foundCustomer.setRentals(new ArrayList<Rental>());
 	    getRepository().saveCustomer(foundCustomer);
@@ -68,21 +74,26 @@ public class Interactor {
 		return builder.toString();
 	}
 
-	public String listCustomers() {
-		StringBuilder builder = new StringBuilder();
+	public void listCustomers() {
 		for (Customer customer : getRepository().findAllCustomers()) {
-		    builder.append(customer.getInfo(true));
+	        System.out.println("ID: " + customer.getCode() + ", "
+	                + "Name: " + customer.getName() + ", "
+	                + "Rentals: " + customer.getRentals().size());
+	        for (Rental rental : customer.getRentals()) {
+	            System.out.println("\tTitle: " + rental.getVideo().getTitle() + ", "
+	                    + "Price Code: " + rental.getVideo().getPriceCode() + ", "
+	                    + "Return Status: " + rental.getStatus());
+	        }
 	    }
-		return builder.toString();
 	}
 
-	public String getCustomerReport(int code) {
+	public void getCustomerReport(int code) {
 		Customer foundCustomer = getRepository().findCustomerById(code);
 	    if (foundCustomer == null) {
 	        throw new IllegalArgumentException("No such customer exists");
 	    }
 	
-	    return foundCustomer.getReport();
+	    System.out.println(foundCustomer.getReport());
 	}
 
 	public void rentVideo(int code, String videoTitle) {
