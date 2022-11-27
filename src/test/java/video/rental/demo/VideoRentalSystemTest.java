@@ -9,10 +9,10 @@ import org.junit.jupiter.api.condition.OS;
 
 public class VideoRentalSystemTest {
 
-	private GoldenMaster goldenMaster = new GoldenMaster();
+	private GoldenMasterGraphic goldenMaster = new GoldenMasterGraphic();
 	
 	@Test
-	@Disabled
+//	@Disabled
 	void generateGoldenMaster() {
 		// Given (Arrange)
 		
@@ -25,7 +25,7 @@ public class VideoRentalSystemTest {
 	
 	@Test
 	@EnabledOnOs(OS.WINDOWS)
-//	@Disabled
+	@Disabled
 	void check_runResult_against_GoldenMaster_on_Windows() {
 		// Given (Arrange)
 		String expected = goldenMaster.getGoldenMaster();
